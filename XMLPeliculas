@@ -1,0 +1,48 @@
+<!-- Máximo número de atributos será de 2 por subelementos-->
+<?xml version=“1.0” encoding=“UTF-8” standalone=“yes”?>
+<peliculas>
+    <pelicula codigo="1">
+        <titulo nombre="">
+            <tituloOriginal></tituloOriginal>
+        </titulo>
+        <personaje nombre="">
+            <actor></actor> <!--¿Podría poner así la etiqueta actor al no tener contenido?-> <actor/> -->
+        </personaje>
+        <equipo>
+            <director></director>
+            <productora></productora>
+            <guionistas>
+                <guionista nombre=""></guionista>
+            </guionistas>
+        </equipo>
+        <anioEstreno></anioEstreno>
+        <paises>
+            <pais nombre="España"></pais>
+        </paises>
+        <idiomas>
+		<idioma nombre=""></idioma>
+	</idiomas>
+        <duracion></duracion>
+        <genero>
+            <estilo></estilo>
+            <ambientacion></ambientacion>
+            <formaProduccion></formaProduccion>
+        </genero>
+        <calificacionEdades>
+            <infantil></infantil>
+            <todosPublicos></todosPublico>
+            <noMenores7></noMenores7>
+            <noMenores12></noMenores12>
+            <noMenores16></noMenores16>
+            <noMenores18></noMenores18>
+        </calificacionEdades>
+        <sinopsis></sinopsis>
+        <webTrailer></webTrailer>
+        <estrenada></estrenada>
+        <representacion>
+            <conSubstitulos></conSubstitulos>
+            <en3D></en3D>
+            <versionOriginal></versionOriginal>
+        </representacion>
+    </pelicula>
+</peliculas>

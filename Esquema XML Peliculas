@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<element name="peliculas" type="tipo_peliculas"/>
+
+<complexType name="tipo_peliculas">
+	<sequence>
+		<element name="titulo" type="tipo_titulo" />	
+		<element name="personajes" type="tipo_personajes" />
+		<element name="equipo" type="tipo_equipo" />
+		<element name="anioEstreno" type="Integer" />
+		<element name="paises" type="tipo_paises" />
+		<element name="idiomas" type="tipo_idiomas" />
+		<element name="duracion" type="Integer" />
+		<element name="genero" type="tipo_genero" />
+		<element name="calificacionEdades" type="tipo_calificacionEdades" />
+		<element name="sinopsis" type="string" />
+		<element name="webTrailer" type="string" />
+		<element name="estrenada" type="boolean" />
+		<element name="representacion" type="tipo_representacion" />
+	</sequence>
+	<attribute name="codigo" type="Integer" use="REQUIRED"/>
+</complexType>
+
+<complexType name="tipo_titulo">
+	<sequence>
+		<element name="tituloOriginal" type="string"/>
+	</sequence>
+	<attribute name="nombre" type="string" use="REQUIRED"/> 
+</complexType>
+
+<complexType name="tipo_personajes">
+	<sequence>
+		<element name="personaje" type="tipo_personaje"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_personaje">
+	<sequence>
+		<element name="actor" type="string"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_equipo">
+	<sequence>
+		<element name="director" type="string"/>
+		<element name="productora" type="string"/>
+		<element name="guionistas" type="tipo_guionistas"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_guionistas">
+	<attribute name="nombre" type="string" use="REQUIRED" />
+</complexType>
+
+<complexType name="tipo_paises">
+	<sequence>
+		<element name="pais" type="tipo_pais"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_pais">
+	<attribute name="nombre" type="string" use="REQUIRED" />
+</complexType>
+
+<complexType name="tipo_idiomas">
+	<sequence>
+		<element name="idioma" type="tipo_idioma"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_idioma">
+	<attribute name="nombre" type="string" use="REQUIRED" />
+</complexType>
+
+<complexType name="tipo_genero">
+	<sequence>
+		<element name="estilo" type="string"/>
+		<element name="ambientacion" type="string"/>
+		<element name="formaProduccion" type="string"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_calificacionEdades">
+	<choice>
+		<element name="infantil" type="boolean"/>
+		<element name="todosPublicos" type="boolean"/>
+		<element name="noMenores7" type="boolean"/>
+		<element name="noMenores12" type="boolean"/>
+		<element name="noMenores16" type="boolean"/>
+		<element name="noMenores18" type="boolean"/>
+	</choice>
+</complexType>
+
+<complexType name="tipo_representacion">
+	<sequence>
+		<element name="conSubstitulos" type="boolean"/>
+		<element name="en3D" type="boolean"/>
+		<element name="versionOriginal" type="boolean"/>
+	</sequence>
+</complexType>
+
+</xs:schema>

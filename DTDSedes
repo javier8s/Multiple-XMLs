@@ -1,0 +1,23 @@
+<!ELEMENT sedes sede+>
+	<!ELEMENT sede (cartelera, proximosEstrenos, salas+)>
+	<!ATTLIST sede id CDATA #REQUIRED>
+		<!ELEMENT cartelera pelicula+>
+			<!ELEMENT pelicula (horario, precio, representacion)>
+			<!ATTLIST pelicula codigo CDATA #REQUIRED>
+				<!ELEMENT horario dia+>
+					<!ELEMENT dia hora+>
+					<!ATTLIST dia id CDATA #REQUIRED>
+						<!ELEMENT hora sala>
+						<!ATTLIST hora inicio CDATA #REQUIRED>
+							<!ELEMENT sala (#PCDATA)>
+				<!ELEMENT precio (#PCDATA)>
+				<!ELEMENT representacion (en3D, versionOriginal)>
+					<!ELEMENT en3D (#PCDATA)>
+					<!ELEMENT versionOriginal (#PCDATA)>
+		<!ELEMENT proximosEstrenos pelicula+>
+			<!ELEMENT pelicula fechaEstreno>
+			<!ATTLIST pelicula codigo CDATA #REQUIRED>
+				<!ELEMENT fechaEstreno (#PCDATA)>
+		<!ELEMENT salas sala+>
+			<!ELEMENT sala EMPTY>
+			<!ATTLIST sala id CDATA #REQUIRED>

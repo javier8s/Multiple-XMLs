@@ -1,0 +1,42 @@
+<!ELEMENT peliculas pelicula+>
+	<!ELEMENT pelicula (titulo, personajes, equipo, anioEstreno, paises, idiomas, duracion, genero, calificacionEdades, sinopsis, webTrailer, estrenada, representacion)>
+	<!ATTLIST pelicula codigo CDATA #REQUIRED>
+		<!ELEMENT titulo tituloOriginal>
+		<!ATTLIST titulo nombre CDATA #REQUIRED>
+			<!ELEMENT tituloOriginal (#PCDATA)>
+		<!ELEMENT personajes personaje+>
+			<!ELEMENT personaje actor>
+			<!ATTLIST personaje nombre>
+				<!ELEMENT actor (#PCDATA)>
+		<!ELEMENT equipo (director, productora, guionistas)>
+			<!ELEMENT director (#PCDATA)>
+			<!ELEMENT productora (#PCDATA)>
+			<!ELEMENT guionistas guionista+>
+				<!ELEMENT guionista EMPTY>
+				<!ATTLIST guionista nombre CDATA #REQUIRED>
+		<!ELEMENT anioEstreno (#PCDATA)>
+		<!ELEMENT paises pais+>
+			<!ELEMENT pais EMPTY>
+			<!ATTLIST pais nombre CDATA #REQUIRED>
+		<!ELEMENT idiomas idioma+>
+			<!ELEMENT idioma EMPTY>
+			<!ATTLIST idioma nombre CDATA #REQUIRED>
+		<!ELEMENT duracion (#PCDATA)>
+		<!ELEMENT genero (estilo, ambientacion, formaProduccion)>
+			<!ELEMENT estilo (#PCDATA)>
+			<!ELEMENT ambientacion (#PCDATA)>
+			<!ELEMENT formaProduccion (#PCDATA)>
+		<!ELEMENT calificacionEdades (infantil, todosPublicos, noMenores7, noMenores12, noMenores16, noMenores18)>
+			<!ELEMENT infantil (#PCDATA)>
+			<!ELEMENT todosPublicos (#PCDATA)>
+			<!ELEMENT noMenores7 (#PCDATA)>
+			<!ELEMENT noMenores12 (#PCDATA)>
+			<!ELEMENT noMenores16 (#PCDATA)>
+			<!ELEMENT noMenores18 (#PCDATA)>
+		<!ELEMENT sinopsis (#PCDATA)>
+		<!ELEMENT webTrailer (#PCDATA)>
+		<!ELEMENT estrenada (#PCDATA)>
+		<!ELEMENT representacion (conSubstitulos, en3D, versionOriginal)>
+			<!ELEMENT conSubstitulos (#PCDATA)>
+			<!ELEMENT en3D (#PCDATA)>
+			<!ELEMENT versionOriginal (#PCDATA)>

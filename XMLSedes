@@ -1,0 +1,34 @@
+<!-- Máximo número de atributos será de 2 por subelementos-->
+<?xml version=“1.0” encoding=“UTF-8” standalone=“yes”?>
+<sedes>
+    <sede id="1">
+        <cartelera>
+            <pelicula codigo="1">
+                <horario>
+                    <dia id="Lunes">
+                        <hora inicio="">
+				<sala></sala>
+			</hora>
+                    </dia>
+                </horario>
+                <precio></precio>
+                <representacion>
+                    <en3D></en3D>
+                    <versionOriginal></versionOriginal>
+                </representacion>
+            </pelicula>
+        </cartelera>
+        <proximosEstrenos>
+            <pelicula codigo="2">
+                <fechaEstreno></fechaEstreno>
+            </pelicula>
+        </proximosEstrenos>
+        <salas>
+            <sala id="1">
+            </sala>
+        </salas>
+    </sede> 
+</sedes>
+
+
+

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<element name="sedes" type="tipo_sedes"/>
+
+<complexType name="tipo_sedes">
+	<sequence>
+		<element name="sede" type="tipo_sede" maxOccurs="10"/>	
+	</sequence>
+</complexType>
+
+<complexType name="tipo_sede">
+	<sequence>
+		<element name="cartelera" type="tipo_cartelera"/> <!-- minOccurs y maxOccurs son 1, por defecto -->
+		<element name="proximosEstrenos" type="tipo_proximosEstrenos"/>
+		<element name="salas" type="tipo_salas"/>
+	</sequence>
+	<attribute name="id" type="Integer" use="REQUIRED"/> 
+</complexType>
+
+<complexType name="tipo_cartelera">
+	<sequence>
+		<element name="pelicula" type="tipo_pelicula"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_pelicula">
+	<sequence>
+		<element name="horario" type="tipo_horario"/>
+		<element name="precio" type="double">
+		<element name="representacion" type="tipo_representacion"/> 	
+	</sequence>
+	<attribute name="codigo" type="integer" use="REQUIRED"/>
+</complexType>
+
+<complexType name="tipo_horario">
+	<sequence>
+		<element name="dia" type="tipo_dia" maxOccurs="7"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_dia">
+	<sequence>
+		<element name="hora" type="tipo_hora"/>
+	</sequence>
+	<attribute name="id" type="tipo_formato_dia" use="REQUIRED"/> <!-- Ahora queremos que el ID de los días solo pueda ser uno de los siguientes valores: Lunes, Martes, Miércoles, Jueves o Viernes -->
+</complexType>
+
+<simpleType name="tipo_formato_dia">
+	<list itemType="LUNES MARTES MIERCOLES JUEVES VIERNES"/>
+</simpleType>
+
+<complexType name="tipo_hora">
+	<sequence>
+		<element name="sala" type="string"/>
+	</sequence>
+	<attribute name="inicio" type="tipo_formato_hora" use="REQUIRED"/> <!-- Ahora queremos que el ID de los días solo pueda ser uno de los siguientes valores: Lunes, Martes, Miércoles, Jueves o Viernes -->
+</complexType>
+
+<simpleType name="tipo_formato_hora">
+	<restriction base="string">
+		<pattern value="\d{2}-\d{2}"/> <!-- Nuevo patrón para el ID de las horas -->
+	</restriction>
+</simpleType>
+
+<complexType name="tipo_representacion">
+	<sequence>
+		<element name="en3D" type="boolean"/>
+		<element name="versionOriginal" type="boolean"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_proximosEstrenos">
+	<sequence>
+		<element name="pelicula" type="tipo_pelicula"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_pelicula"> <!--¿Habría que incluir este complexType si ya lo tenemos hecho arriba o en realidad habria que ponerle otro nombre a la etiqueta como "peliculaAEstrenar"? -->
+	<sequence>
+		<element name="fechaEstreno" type="date"/>
+	</sequence>
+	<attribute name="codigo" type="integer" use="REQUIRED"/>
+</complexType>
+
+<complexType name="tipo_salas"> 
+	<sequence>
+		<element name="sala" type="tipo_sala"/>
+	</sequence>
+</complexType>
+
+<complexType name="tipo_sala"> <!-- ¿Se podría hacer así aunque el complexType="tipo_sala" no tenga subelementos? -->
+	<attribute name="id" type="integer" use="REQUIRED"/>
+</complexType>
+
+</xs:schema>
